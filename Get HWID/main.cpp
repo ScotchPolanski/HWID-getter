@@ -1,12 +1,13 @@
 #include <iostream>
-#include <atlsecurity.h> // für get_hwid()
-#include <atlconv.h> // für CT2A
-#include <fstream> // für TXT
+#include <atlsecurity.h> // fÃ¼r get_hwid()
+#include <atlconv.h> // fÃ¼r CT2A
+#include <fstream> // fÃ¼r TXT
 #include "xorstr.hpp"
 
 using namespace std;
 
-string getHWID() {
+string getHWID() 
+{
 	HW_PROFILE_INFO hwProfileInfo;
 	GetCurrentHwProfile(&hwProfileInfo);
 	wstring hwidWString = hwProfileInfo.szHwProfileGuid;
@@ -15,7 +16,8 @@ string getHWID() {
 }
 
 
-static std::string get_hwid() {
+static std::string get_hwid() 
+{
 	ATL::CAccessToken accessToken;
 	ATL::CSid currentUserSid;
 	if (accessToken.GetProcessToken(TOKEN_READ | TOKEN_QUERY) &&
